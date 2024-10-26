@@ -1,0 +1,94 @@
+{# ------------Scripts for phone number this code does to beautiful +998-(__)___-__-__ do this--------------------- #}
+<script>
+    $('#phone-mask').inputmask({
+        "mask": "+\\9\\98(99) 999-99-99"
+    });
+    $('#messages-modal').modal('show');
+</script>
+{# And Ajax for phone number#}
+{#<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
+{#<script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>#}```
+
+{#-----------------------------------------------------------------------------------------------------------------#}
+<script>
+    $(function () {
+        var availableTags = [
+
+            "Savdogarlar ustozi 1 va 2-kitoblar yana sotuvda",
+
+            "Ayol immun sino tib fermasi",
+
+            "Nabaviy tarbiya",
+
+            "POLYCARBON Qo&#x27;l Soati",
+
+            "Hublot geneve",
+
+            "Erkaklar uchun magnetli ichki kiyim",
+
+            "(Patek filip) O‘zbekiston gerbi tushirilgan soat",
+
+            "Fucda soati",
+
+            "Avtomobil uchun elektron soat",
+
+            "MUKOSHAFATUL QULUB kitobi",
+
+            "Choʻziluvchan kapron.",
+
+            "Avtomobil plastik qisimlari uchun gel",
+
+            "Nokia 6310",
+
+            "Pres uchun rolik",
+
+            "Vosmoy soch uchun balzam Camera",
+
+            "O‘zbekiston gerbi va xaritasi tushirilgan soat",
+
+            "POLIROFKA AVTOMASHINA UCHUN (sarqi karopka)",
+
+            "Universal Gadjet (2)",
+
+            "Universal Gadjet (1)",
+
+            "Bolalar uchun havoli grusha",
+
+        ];
+        $("#search-input").autocomplete({
+            source: availableTags
+        });
+        console.log(availableTags);
+    });
+</script>
+
+
+{#-----------------------------------------------------------------------------------------------------------------#}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#id_region').change(function(){
+            var region_id = $(this).val();
+            
+            if(region_id){
+                $.ajax({
+                    url: '{% url "get_districts" %}',
+                    data: {
+                        'region_id': region_id
+                    },
+                    success: function(data){
+                        $('#id_district').empty();
+                        $('#id_district').append('<option value="">Tumanni tanlang</option>');
+                        $.each(data, function(key, value){
+                            $('#id_district').append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            }else{
+                $('#id_district').empty();
+                $('#id_district').append('<option value="">Tumanni tanlang</option>');
+            }
+        });
+    });
+</script>
+
