@@ -121,7 +121,8 @@
                         <ul>
                             {% for message in messages %}
                                 {% if message.tags %}
-                                    <h5 class="{{ message.tags }} text-danger" {% endif %}>{{ message }}</h5>
+                                    <h6 class="{{ message.tags }}{% if message.tags == 'success' %} text-success{% else %} text-danger{% endif %}">{{ message }}</h6>
+                                {% endif %}
                             {% endfor %}
                         </ul>
                     {% endif %}

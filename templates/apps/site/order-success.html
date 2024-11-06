@@ -1,0 +1,52 @@
+{% extends "apps/base_include/base.html" %}
+{% load humanize %}
+{% block main %}
+    <div class="container text-center pb-5 card" style="margin-top: 80px;">
+        <div class="card-body" style="margin-top: 30px">
+
+        </div>
+
+        {#        <img style="height: 100px; width:100px; margin-left:45%; margin-top: 30px" src="https://alijahon.uz/static/app/success_icon.png#}
+        {#"#}
+        {#             alt="Green Success Image">#}
+        <div class="align-center">
+            <img width="64" height="64" src="https://img.icons8.com/arcade/64/ok.png" alt="ok"/>
+        </div>
+        
+        <h3 class="mt-4">Arizangiz qabul qilindi!</h3>
+        <p>Batafsil ma'lumot uchun operator yaqin vaqt ichida siz bilan aloqaga chiqadi.</p>
+        <p>Iltimos, telefoningiz yoqilgan holda bo'lsin!</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Mahsulot</th>
+                <th scope="col">Summa</th>
+                <th scope="col">Soni</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="col">{{ order.product.name }}</th>
+                <th scope="col">{{ product_price|floatformat:"0"|intcomma}}</th>
+                <th scope="col">1</th>
+            </tr>
+
+            <tr>
+                <th scope="col">Yetkazib berish</th>
+                <th scope="col">{{ site.delivery_price|floatformat:"0"|intcomma}}</th>
+            </tr>
+
+
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-6">
+
+
+            </div>
+            <div class="col-md-6 mt-3">
+                <a href="{% url 'home' %}" class="btn btn-primary w-50">Boshqa mahsulotlar</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

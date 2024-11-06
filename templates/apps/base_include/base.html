@@ -616,7 +616,7 @@
                         <li class="nav-item">
                             <ul class="nav collapse show" id="dashboard">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" role="button"
+                                    <a class="nav-link" href="{% url 'home' %}" role="button"
                                        aria-expanded="false">
                                         <div class="d-flex align-items-center"><span
                                                 class="nav-link-text ps-1">Bosh sahifa</span>
@@ -624,7 +624,7 @@
                                     </a>
                                 <li/>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" role="button"
+                                    <a class="nav-link" href="{% url 'category' "all" %}" role="button"
                                        aria-expanded="false">
                                         <div class="d-flex align-items-center"><span
                                                 class="nav-link-text ps-1">Mahsulotlar</span>
@@ -632,7 +632,7 @@
                                     </a>
                                 <li/>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" role="button"
+                                    <a class="nav-link" href="{% url 'order-list' %}" role="button"
                                        aria-expanded="false">
                                         <div class="d-flex align-items-center"><span
                                                 class="nav-link-text ps-1">Buyurtmalar</span>
@@ -640,7 +640,7 @@
                                     </a>
                                 <li/>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" role="button"
+                                    <a class="nav-link" href="{% url 'wishlist' %}" role="button"
                                        aria-expanded="false">
                                         <div class="d-flex align-items-center"><span
                                                 class="nav-link-text ps-1">Yoqtirgan mahsulotlar</span>
@@ -649,7 +649,7 @@
                                 <li/>
                                 {% if request.user.is_authenticated %}
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#" role="button"
+                                        <a class="nav-link" href="{% url 'market' 'all' %}" role="button"
                                            aria-expanded="false">
                                             <div class="d-flex align-items-center"><span
                                                     class="nav-link-text ps-1">Market</span>
@@ -657,7 +657,7 @@
                                         </a>
                                     <li/>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#" role="button"
+                                        <a class="nav-link" href="{% url 'thread-list' %}" role="button"
                                            aria-expanded="false">
                                             <div class="d-flex align-items-center"><span
                                                     class="nav-link-text ps-1">Oqim</span>
@@ -791,14 +791,17 @@
                         <div class="dropdown-menu dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">
                             <div class="bg-white dark__bg-1000 rounded-2 py-2">
                                 {% if not request.user.is_authenticated %}
-                                    <a class="dropdown-item header_navbar_lang_menu_dropdown_item" href="{% url 'profile-edit' %}">
+                                    <a class="dropdown-item header_navbar_lang_menu_dropdown_item"
+                                       href="{% url 'profile-edit' %}">
                                         Profil
                                     </a>
-                                    <a class="dropdown-item header_navbar_lang_menu_dropdown_item" href="{% url "auth" %}">
+                                    <a class="dropdown-item header_navbar_lang_menu_dropdown_item"
+                                       href="{% url "auth" %}">
                                         Ro'yxatdan o'tish
                                     </a>
                                 {% else %}
-                                    <a class="dropdown-item header_navbar_lang_menu_dropdown_item" href="{% url 'profile-edit' %}">
+                                    <a class="dropdown-item header_navbar_lang_menu_dropdown_item"
+                                       href="{% url 'profile-edit' %}">
                                         Profil
                                     </a>
                                     <a class="dropdown-item header_navbar_lang_menu_dropdown_item"

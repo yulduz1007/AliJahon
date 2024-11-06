@@ -1,11 +1,9 @@
 from http import HTTPStatus
 import re
-
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
-from django.forms import Form, CharField, BooleanField, ModelForm, IntegerField
-
-from apps.models import User
+from django.forms import Form, CharField, BooleanField, ModelForm
+from apps.models import Thread
 
 
 class AuthForm(Form):
@@ -55,3 +53,24 @@ class ProfileForm(Form):
         if not telegram_id:
             return None
         return telegram_id
+
+
+class OrderForm(Form):
+    name = CharField(max_length=255)
+    phone_number = CharField(max_length=255)
+    product = CharField(max_length=255)
+    thread = CharField(max_length=255, required=False)
+
+    def clean_phone_number(self):
+        phone_number = self.cleaned_data.get('phone_number')
+        return re.sub(r'\D', '', phone_number)[3:]
+
+
+class ThreadForm(ModelForm):
+    class Meta:
+        model = Thread
+        exclude = "created_at", "updated_at", "visit_count"
+
+    def __init__(self, *args, **kwargs):
+        super(ThreadForm, self).__init__(*args, **kwargs)
+        self.fields['owner'].required = False
